@@ -1,0 +1,27 @@
+color: yellow
+delay: 50
+
+name: Steve 
+%0
+%1
+text: Hello !
+text: I'm Steve.
+text: Nice to meet you !
+
+
+
+name: Markus
+color: gold
+delay: 60
+%0
+%15
+text: Hola !
+text: My name is Markus.
+text: Nice to meet you !
+%25
+text: Bye !
+text: See you later !
+%35
+text: You can talk to Steve too.
+text: Let's go find him ...
+

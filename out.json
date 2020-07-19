@@ -1,0 +1,94 @@
+[
+   {
+      "id": 0,
+      "name": "Steve",
+      "texts": {
+         "0": [],
+         "1": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "white",
+                  "text": "Hello !"
+               }
+            },
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "white",
+                  "text": "I'm Steve."
+               }
+            },
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "white",
+                  "text": "Nice to meet you !"
+               }
+            }
+         ]
+      }
+   },
+   {
+      "id": 1,
+      "name": "Markus",
+      "texts": {
+         "0": [],
+         "15": [
+            {
+               "delay": "60",
+               "raw": {
+                  "color": "gold",
+                  "text": "Hola !"
+               }
+            },
+            {
+               "delay": "60",
+               "raw": {
+                  "color": "gold",
+                  "text": "My name is Markus."
+               }
+            },
+            {
+               "delay": "60",
+               "raw": {
+                  "color": "gold",
+                  "text": "Nice to meet you !"
+               }
+            }
+         ],
+         "25": [
+            {
+               "delay": "60",
+               "raw": {
+                  "color": "gold",
+                  "text": "Bye !"
+               }
+            },
+            {
+               "delay": "60",
+               "raw": {
+                  "color": "gold",
+                  "text": "See you later !"
+               }
+            }
+         ],
+         "35": [
+            {
+               "delay": "60",
+               "raw": {
+                  "color": "gold",
+                  "text": "You can talk to Steve too."
+               }
+            },
+            {
+               "delay": "60",
+               "raw": {
+                  "color": "gold",
+                  "text": "Let's go find him ..."
+               }
+            }
+         ]
+      }
+   }
+]
