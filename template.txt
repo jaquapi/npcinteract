@@ -14,14 +14,14 @@ name: Markus
 color: gold
 delay: 60
 %0
-%15
+%1
 text: Hola !
-text: My name is Markus.
+text: My name is "Markus".
 text: Nice to meet you !
-%25
+%2
 text: Bye !
 text: See you later !
-%35
+%3
 text: You can talk to Steve too.
 text: Let's go find him ...
 

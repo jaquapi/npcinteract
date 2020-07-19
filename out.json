@@ -34,7 +34,7 @@
       "name": "Markus",
       "texts": {
          "0": [],
-         "15": [
+         "1": [
             {
                "delay": "60",
                "raw": {
@@ -46,7 +46,7 @@
                "delay": "60",
                "raw": {
                   "color": "gold",
-                  "text": "My name is Markus."
+                  "text": "My name is \"Markus\"."
                }
             },
             {
@@ -57,7 +57,7 @@
                }
             }
          ],
-         "25": [
+         "2": [
             {
                "delay": "60",
                "raw": {
@@ -73,7 +73,7 @@
                }
             }
          ],
-         "35": [
+         "3": [
             {
                "delay": "60",
                "raw": {
