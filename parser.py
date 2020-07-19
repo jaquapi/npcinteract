@@ -45,7 +45,7 @@ class NpcParser:
         with open("out.json",'w',encoding='utf8') as fout:
             json.dump(self.npcList,fout,indent=3,sort_keys=True)
 
-        self.npcList = self.npcList             
+        # print(self.npcList)            
 
     def checkName(self, listL):
         if listL[0] == "name":
@@ -108,8 +108,8 @@ class NpcParser:
 
         #npcinteract core
         os.chdir(dir_data)
-        self.force_mkdir("minecraft/tags/functions")
-        os.chdir("minecraft/tags/functions")
+        self.force_mkdir("npcinteract/functions/npc")
+        os.chdir("npcinteract/functions")
         with open("ray_init.mcfunction","w",encoding="utf8") as f:
             f.write('scoreboard players set @s npcRayDist 20\nsummon area_effect_cloud ~ ~ ~ {Tags:["NPC_RAY"],Duration:20,Radius:0f}\nfunction npcinteract:ray_cast\nkill @e[tag=NPC_RAY,type=area_effect_cloud]\nscoreboard players set @s npcTalkedTo 0\n')
         with open("ray_cast.mcfunction","w",encoding="utf8") as f:
@@ -207,6 +207,7 @@ def isInt(s):
 
 if __name__ == "__main__":
 
-    d = NpcParser("template.txt", "npc_interact_gen")
+    d = NpcParser("template.txt", "npcinteract_gen")
+    d.parse()
     d.pack_writer()
     pass
