@@ -11,8 +11,7 @@ text: Nice to meet you !
 
 
 name: Markus
-color: gold
-delay: 60
+delay: 50
 %0
 %1
 text: Hola !

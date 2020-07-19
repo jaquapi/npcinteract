@@ -161,6 +161,7 @@ def gets_checks(dicts):
     s=""
     for npc in dicts:
         s+='execute at @e[name="'+npc["name"]+'"] anchored eyes positioned ^ ^ ^ if entity @e[tag=NPC_RAY,distance=..1] run function npcinteract:npc/'+get_varname(npc["name"])+'_check\n'
+    print(s)
     return s
 
 def gets_npccheck(name):
@@ -189,8 +190,6 @@ def gets_npc(dict):
             totDelay+=int(txt["delay"])
         
         s+='scoreboard players set @a[scores={T_'+name+'='+str(totDelay)+'..,SP_'+name+'='+state+'}] T_'+name+' 0\n\n'
-        
-
     return s
 
 
