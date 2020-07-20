@@ -1,0 +1,23 @@
+{
+    "nameDisplay": {
+        "bold": "false",
+        "color": "yellow",
+        "separator": "[]",
+        "italic": "false",
+        "underlined": "false"
+    },
+    "text": {
+        "color": "yellow",
+        "bold": "false",
+        "italic": "false",
+        "underlined": "false"
+    },
+    "dialog": {
+        "delay": "40",
+        "npcSpam": "false"
+    },
+    "raycast": {
+        "hideParticle": "false",
+        "particle": "minecraft:crit"
+    }
+}

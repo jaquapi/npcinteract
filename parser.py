@@ -6,10 +6,64 @@ class NpcParser:
         self.npcList = []
         self.currentNpc = -1
         self.currentState = 0
-        self.rawParam = {"color":"white"}
-        self.param = {"delay":"40"}
+        # self.rawParam = {"color":"white"}
+        # self.param = {"delay":"40"}
+        self.cfg = {}
+        self.mcdefault_cfg = self.load_mcdefault_config()
         self.pathIn = inputPath
         self.pathOut = outputPath
+
+    def _save_config(self,path):
+        #TEMP
+
+        d = {}
+
+        d["nameDisplay"] = {}
+        d["nameDisplay"]["bold"] = "true"
+        d["nameDisplay"]["color"] = "yellow"
+        d["nameDisplay"]["separator"]="[]"
+        d["nameDisplay"]["italic"]= "false"
+        d["nameDisplay"]["underlined"]= "false"      
+
+        d["text"] = {}        
+        d["text"]["color"]="yellow"
+        d["text"]["bold"]= "false"
+        d["text"]["italic"]= "false"
+        d["text"]["underlined"]= "false"
+
+        d["dialog"] = {}
+        d["dialog"]["delay"] = "40"
+        d["dialog"]["npcSpam"] = "false"
+
+        d["raycast"] = {}
+        d["raycast"]["hideParticle"] = "false"
+        d["raycast"]["particle"] = "minecraft:crit"
+
+        with open(path,"w",encoding="utf8") as f:
+            json.dump(d,f,indent=4)
+        
+    def load_config(self,path):
+        with open(path,"r",encoding="utf8") as f:
+            self.cfg = json.load(f)
+
+    def load_mcdefault_config(self):
+        #for later default values removing
+
+        d = {}
+        d["text"] = {}
+
+        d["text"]["color"]="white"
+        d["text"]["bold"]="false"
+        d["text"]["italic"]="false"
+        d["text"]["underlined"]="false"
+
+        d["nameDisplay"] = {}
+        d["nameDisplay"]["bold"] = "false"
+        d["nameDisplay"]["italic"]= "false"
+        d["nameDisplay"]["underlined"]= "false"   
+        d["nameDisplay"]["color"] = "white"
+
+        return d
 
     def parse(self):
         with open(self.pathIn,'r',encoding='utf8') as fin:
@@ -18,16 +72,19 @@ class NpcParser:
 
                 listL = [l.strip() for l in listL]
 
-                if self.checkName(listL):
+                if self.check_name(listL):
                     self.currentNpc = len(self.npcList)-1
 
-                elif (self.currentNpc >= 0) & self.isValid(listL):
+                elif (self.currentNpc >= 0) & self.is_valid(listL):
+                    
+                    if listL[0] in list(self.cfg["text"].keys()):
+                        self.cfg["text"][listL[0]] = listL[1]
 
-                    if listL[0] == "color":
-                        self.rawParam["color"] = listL[1]
+                    # if listL[0] == "color":
+                    #     self.rawParam["color"] = listL[1]
 
                     elif listL[0] == "delay":
-                        self.param["delay"] = listL[1]
+                        self.cfg["dialog"]["delay"] = listL[1]
 
                     elif listL[0][0] == '%':
                         self.currentState = listL[0].split('%')[1]
@@ -35,8 +92,8 @@ class NpcParser:
 
                     elif listL[0] == "text":
                         d = {"raw":{"text":listL[1]}}
-                        d["raw"].update(self.rawParam)
-                        d.update(self.param)
+                        d["raw"].update( remove_duplicate(self.cfg["text"],self.mcdefault_cfg["text"]) )
+                        d.update({key:self.cfg["dialog"][key] for key in ["delay"]})
                         self.npcList[self.currentNpc]["texts"][self.currentState].append(d)
 
                     else :
@@ -44,10 +101,9 @@ class NpcParser:
 
         with open("out.json",'w',encoding='utf8') as fout:
             json.dump(self.npcList,fout,indent=3,sort_keys=True)
+          
 
-        # print(self.npcList)            
-
-    def checkName(self, listL):
+    def check_name(self, listL):
         if listL[0] == "name":
             print("Got "+listL[1])
             id = len(self.npcList)
@@ -59,7 +115,7 @@ class NpcParser:
         else:
             return False
 
-    def isValid(self, listL):
+    def is_valid(self, listL):
         if not listL[0]:    #empty line
             return False
         elif listL[0][0] == '%':    #state line
@@ -74,7 +130,7 @@ class NpcParser:
         elif listL[0][0] == "#":    #comment line
             return False
         elif len(listL) < 2:    #missing key/value format
-            print("(Missing value) "+listL)
+            print("(Only one value) "+str(listL))
             return False
         else:   #valid line
             return True
@@ -113,7 +169,9 @@ class NpcParser:
         with open("ray_init.mcfunction","w",encoding="utf8") as f:
             f.write('scoreboard players set @s npcRayDist 20\nsummon area_effect_cloud ~ ~ ~ {Tags:["NPC_RAY"],Duration:20,Radius:0f}\nfunction npcinteract:ray_cast\nkill @e[tag=NPC_RAY,type=area_effect_cloud]\nscoreboard players set @s npcTalkedTo 0\n')
         with open("ray_cast.mcfunction","w",encoding="utf8") as f:
-            f.write('particle minecraft:crit ~ ~ ~ 0 0 0 0 10\ntp @e[tag=NPC_RAY,type=area_effect_cloud] ~ ~ ~\nfunction npcinteract:npc_check\nscoreboard players remove @s npcRayDist 1\nexecute if score @s npcRayDist matches 1.. positioned ^ ^ ^1 run function npcinteract:ray_cast')
+            if self.cfg["raycast"]["hideParticle"] == False :
+                f.write('particle '+self.cfg["raycast"]["particle"]+' ~ ~ ~ 0 0 0 0 10\n')
+            f.write('tp @e[tag=NPC_RAY,type=area_effect_cloud] ~ ~ ~\nfunction npcinteract:npc_check\nscoreboard players remove @s npcRayDist 1\nexecute if score @s npcRayDist matches 1.. positioned ^ ^ ^1 run function npcinteract:ray_cast')
 
         #npcinteract npc specific
         with open("tick.mcfunction","w",encoding="utf8") as f:
@@ -137,11 +195,14 @@ class NpcParser:
             with open(path,"w",encoding="utf8") as f:
                 f.write(self.gets_npc(npc))
 
+        print("Datapack " + self.pathOut + " written !")
+
 
     def gets_tick(self):
         s='execute as @a[scores={npcTalkedTo=1..}] at @s anchored eyes positioned ^ ^ ^ run function npcinteract:ray_init\n'
         for npc in self.npcList:
-            s+='function npcinteract:npc/'+self.get_varname(npc["name"])+'\n'
+            name = self.get_varname(npc["name"])
+            s+='execute if entity @a[scores={T_'+name+'=1..}] run function npcinteract:npc/'+self.get_varname(npc["name"])+'\n'
         return s
 
     def gets_load(self):
@@ -171,21 +232,22 @@ class NpcParser:
         #Input dict of one NPC
         
         #title
-        title_param={"bold":"true","color":"yellow"} #####param of name title
-        title={"text":"["+dict["name"]+"] "}
-        title.update(title_param)
+        title={"text":self.cfg["nameDisplay"]["separator"][0]+dict["name"]+self.cfg["nameDisplay"]["separator"][1]+" "}
+        title.update( remove_duplicate(self.cfg["nameDisplay"],self.mcdefault_cfg["nameDisplay"]) )
 
         name=self.get_varname(dict["name"])
 
-        s='scoreboard players add @a[scores={T_'+name+'=1..,SP_'+name+'=1..}] T_'+name+' 1\n\n'
+        s='scoreboard players add @a[scores={T_'+name+'=1..}] T_'+name+' 1\n\n'
         for state,txts in dict["texts"].items():
+            curDelay=0
             totDelay=2
             for txt in txts:
                 s_temp='tellraw @a[scores={T_'+name+'='+str(totDelay)+',SP_'+name+'='+state+'}] ["",'+json.dumps(title)+','+json.dumps(txt["raw"])+']\n'
                 s += s_temp
-                totDelay+=int(txt["delay"])
+                curDelay=int(txt["delay"])
+                totDelay+=curDelay
             
-            s+='scoreboard players set @a[scores={T_'+name+'='+str(totDelay)+'..,SP_'+name+'='+state+'}] T_'+name+' 0\n\n'
+            s+='scoreboard players set @a[scores={T_'+name+'='+str(totDelay-curDelay+1)+'..,SP_'+name+'='+state+'}] T_'+name+' 0\n\n'
         return s
 
 
@@ -198,6 +260,9 @@ class NpcParser:
         except:
             pass
 
+def remove_duplicate(d,dref):
+    return {k:d[k] for k in d if k in dref if (d[k] != dref[k]) }
+
 def isInt(s):
     try:
         int(s)
@@ -208,6 +273,7 @@ def isInt(s):
 if __name__ == "__main__":
 
     d = NpcParser("template.txt", "npcinteract_gen")
+    # d._save_config("config.json")
+    d.load_config("config.json")
     d.parse()
     d.pack_writer()
-    pass

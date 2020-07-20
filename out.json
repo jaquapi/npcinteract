@@ -8,21 +8,21 @@
             {
                "delay": "40",
                "raw": {
-                  "color": "white",
+                  "color": "yellow",
                   "text": "Hello !"
                }
             },
             {
                "delay": "40",
                "raw": {
-                  "color": "white",
+                  "color": "yellow",
                   "text": "I'm Steve."
                }
             },
             {
                "delay": "40",
                "raw": {
-                  "color": "white",
+                  "color": "yellow",
                   "text": "Nice to meet you !"
                }
             }
@@ -36,55 +36,55 @@
          "0": [],
          "1": [
             {
-               "delay": "50",
+               "delay": "40",
                "raw": {
-                  "color": "white",
+                  "color": "yellow",
                   "text": "Hola !"
                }
             },
             {
-               "delay": "50",
+               "delay": "40",
                "raw": {
-                  "color": "white",
+                  "color": "yellow",
                   "text": "My name is \"Markus\"."
                }
             },
             {
-               "delay": "50",
+               "delay": "40",
                "raw": {
-                  "color": "white",
+                  "color": "yellow",
                   "text": "Nice to meet you !"
                }
             }
          ],
          "2": [
             {
-               "delay": "50",
+               "delay": "40",
                "raw": {
-                  "color": "white",
+                  "color": "yellow",
                   "text": "Bye !"
                }
             },
             {
-               "delay": "50",
+               "delay": "40",
                "raw": {
-                  "color": "white",
+                  "color": "yellow",
                   "text": "See you later !"
                }
             }
          ],
          "3": [
             {
-               "delay": "50",
+               "delay": "40",
                "raw": {
-                  "color": "white",
+                  "color": "yellow",
                   "text": "You can talk to Steve too."
                }
             },
             {
-               "delay": "50",
+               "delay": "40",
                "raw": {
-                  "color": "white",
+                  "color": "yellow",
                   "text": "Let's go find him ..."
                }
             }

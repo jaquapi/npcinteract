@@ -1,17 +1,11 @@
-color: yellow
-delay: 50
-
-name: Steve 
+name: Steve
 %0
 %1
 text: Hello !
 text: I'm Steve.
 text: Nice to meet you !
 
-
-
 name: Markus
-delay: 50
 %0
 %1
 text: Hola !
@@ -24,3 +18,7 @@ text: See you later !
 text: You can talk to Steve too.
 text: Let's go find him ...
 
+color:blue
+italic:true
+bold:true
+underlined:true
