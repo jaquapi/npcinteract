@@ -1,0 +1,2 @@
+# npcinteract
+NPC interact datapack
