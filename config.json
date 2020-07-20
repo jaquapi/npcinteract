@@ -18,7 +18,7 @@
     },
     "raycast": {
         "hideParticle": "false",
-        "particle": "minecraft:happy_villager",
+        "particle": "minecraft:crit",
         "distance": "6"
     }
 }
