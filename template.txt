@@ -18,6 +18,8 @@ text: See you later !
 text: You can talk to Steve too.
 text: Let's go find him ...
 
+#Here is a comment
+#Additional things that can be added 'on the fly'
 color:blue
 italic:true
 bold:true

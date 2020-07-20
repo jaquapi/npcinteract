@@ -167,9 +167,9 @@ class NpcParser:
         self.force_mkdir("npcinteract/functions/npc")
         os.chdir("npcinteract/functions")
         with open("ray_init.mcfunction","w",encoding="utf8") as f:
-            f.write('scoreboard players set @s npcRayDist 20\nsummon area_effect_cloud ~ ~ ~ {Tags:["NPC_RAY"],Duration:20,Radius:0f}\nfunction npcinteract:ray_cast\nkill @e[tag=NPC_RAY,type=area_effect_cloud]\nscoreboard players set @s npcTalkedTo 0\n')
+            f.write('scoreboard players set @s npcRayDist '+self.cfg["raycast"]["distance"]+'\nsummon area_effect_cloud ~ ~ ~ {Tags:["NPC_RAY"],Duration:20,Radius:0f}\nfunction npcinteract:ray_cast\nkill @e[tag=NPC_RAY,type=area_effect_cloud]\nscoreboard players set @s npcTalkedTo 0\n')
         with open("ray_cast.mcfunction","w",encoding="utf8") as f:
-            if self.cfg["raycast"]["hideParticle"] == False :
+            if self.cfg["raycast"]["hideParticle"] == "false" :
                 f.write('particle '+self.cfg["raycast"]["particle"]+' ~ ~ ~ 0 0 0 0 10\n')
             f.write('tp @e[tag=NPC_RAY,type=area_effect_cloud] ~ ~ ~\nfunction npcinteract:npc_check\nscoreboard players remove @s npcRayDist 1\nexecute if score @s npcRayDist matches 1.. positioned ^ ^ ^1 run function npcinteract:ray_cast')
 
