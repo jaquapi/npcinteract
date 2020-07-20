@@ -1,5 +1,6 @@
-import json
 import os
+import json
+import re
 
 class NpcParser:
     def __init__(self, inputPath, outputPath):
@@ -252,7 +253,7 @@ class NpcParser:
 
 
     def get_varname(self, name):
-        return name.strip().replace(" ","").replace("'","").replace("\"","").lower()[:12]
+        return re.sub('[^A-Za-z0-9]+', '', name).lower()[:12]
 
     def force_mkdir(self, dir):
         try:
