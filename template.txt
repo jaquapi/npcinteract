@@ -1,17 +1,19 @@
-name: Steve
-%0
-%1
-text: Hello !
-text: I'm Steve.
-text: Nice to meet you !
+#Template for npcinteract
 
+#Define the entity name
 name: Markus
+
+#Define an optional nickname (name displayed in chat)
 nickname: Markus the Great
+
+#You can define various states for your NPC (with '%'+<NUMBER>). For each state, you can write a corresponding dialog (with 'text:<TEXT>')
 %0
-%1
 text: Hola !
 text: My name is "Markus".
 text: Nice to meet you !
+
+#Entity dialog state. Note that you can define a state without any dialog.
+%1
 %2
 text: Bye !
 text: See you later !
@@ -19,8 +21,26 @@ text: See you later !
 text: You can talk to Steve too.
 text: Let's go find him ...
 
-#Here is a comment
-#Additional things that can be added 'on the fly'
+#Another example
+name: Steve
+%0
+#You can add some options 'on the fly' which will modify subsequent dialogs
+color:blue
+italic:true
+text: Hello !
+text: I'm Steve.
+text: Nice to meet you !
+
+%10
+italic:false
+text: Wow thanks !
+
+%11
+text: You should find Markus ...
+text: Maybe he's got another job for you :)
+
+
+#Additional 'on the fly' options
 color:blue
 italic:true
 bold:true

@@ -1,42 +1,10 @@
 [
    {
       "id": 0,
-      "name": "Steve",
-      "nickname": "Steve",
-      "texts": {
-         "0": [],
-         "1": [
-            {
-               "delay": "40",
-               "raw": {
-                  "color": "yellow",
-                  "text": "Hello !"
-               }
-            },
-            {
-               "delay": "40",
-               "raw": {
-                  "color": "yellow",
-                  "text": "I'm Steve."
-               }
-            },
-            {
-               "delay": "40",
-               "raw": {
-                  "color": "yellow",
-                  "text": "Nice to meet you !"
-               }
-            }
-         ]
-      }
-   },
-   {
-      "id": 1,
       "name": "Markus",
       "nickname": "Markus the Great",
       "texts": {
-         "0": [],
-         "1": [
+         "0": [
             {
                "delay": "40",
                "raw": {
@@ -59,6 +27,7 @@
                }
             }
          ],
+         "1": [],
          "2": [
             {
                "delay": "40",
@@ -88,6 +57,64 @@
                "raw": {
                   "color": "yellow",
                   "text": "Let's go find him ..."
+               }
+            }
+         ]
+      }
+   },
+   {
+      "id": 1,
+      "name": "Steve",
+      "nickname": "Steve",
+      "texts": {
+         "0": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "blue",
+                  "italic": "true",
+                  "text": "Hello !"
+               }
+            },
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "blue",
+                  "italic": "true",
+                  "text": "I'm Steve."
+               }
+            },
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "blue",
+                  "italic": "true",
+                  "text": "Nice to meet you !"
+               }
+            }
+         ],
+         "10": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "blue",
+                  "text": "Wow thanks !"
+               }
+            }
+         ],
+         "11": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "blue",
+                  "text": "You should find Markus ..."
+               }
+            },
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "blue",
+                  "text": "Maybe he's got another job for you :)"
                }
             }
          ]
