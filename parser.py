@@ -1,14 +1,12 @@
-import os
+import os, sys
 import json
 import re
 
 class NpcParser:
-    def __init__(self, inputPath, outputPath):
+    def __init__(self, inputPath="template.txt", outputPath="npcinteract_gen"):
         self.npcList = []
         self.currentNpc = -1
         self.currentState = 0
-        # self.rawParam = {"color":"white"}
-        # self.param = {"delay":"40"}
         self.cfg = {}
         self.mcdefault_cfg = self.load_mcdefault_config()
         self.pathIn = inputPath
@@ -16,7 +14,6 @@ class NpcParser:
 
     def _save_config(self,path):
         #TEMP
-
         d = {}
 
         d["nameDisplay"] = {}
@@ -108,9 +105,15 @@ class NpcParser:
         if listL[0] == "name":
             print("Got "+listL[1])
             id = len(self.npcList)
-            self.npcList.append({"name":listL[1],"id":id})
+            self.npcList.append({"name":listL[1],"nickname":listL[1],"id":id})
             self.npcList[id]["texts"] = {}
             self.npcList[id]["texts"]["0"] = []    #initializes at self.currentState=0
+            return True
+        
+        elif listL[0] == "nickname":
+            print("\talias "+listL[1])
+            id = len(self.npcList)-1
+            self.npcList[id]["nickname"] = listL[1]
             return True
 
         else:
@@ -168,7 +171,7 @@ class NpcParser:
         self.force_mkdir("npcinteract/functions/npc")
         os.chdir("npcinteract/functions")
         with open("ray_init.mcfunction","w",encoding="utf8") as f:
-            f.write('scoreboard players set @s npcRayDist '+self.cfg["raycast"]["distance"]+'\nsummon area_effect_cloud ~ ~ ~ {Tags:["NPC_RAY"],Duration:20,Radius:0f}\nfunction npcinteract:ray_cast\nkill @e[tag=NPC_RAY,type=area_effect_cloud]\nscoreboard players set @s npcTalkedTo 0\n')
+            f.write('scoreboard players set @s npcRayDist '+self.cfg["raycast"]["distance"]+'\nsummon area_effect_cloud ~ ~ ~ {Tags:["NPC_RAY"],Duration:'+self.cfg["raycast"]["distance"]+',Radius:0f}\nfunction npcinteract:ray_cast\nkill @e[tag=NPC_RAY,type=area_effect_cloud]\nscoreboard players set @s npcTalkedTo 0\n')
         with open("ray_cast.mcfunction","w",encoding="utf8") as f:
             if self.cfg["raycast"]["hideParticle"] == "false" :
                 f.write('particle '+self.cfg["raycast"]["particle"]+' ~ ~ ~ 0 0 0 0 10\n')
@@ -203,7 +206,7 @@ class NpcParser:
         s='execute as @a[scores={npcTalkedTo=1..}] at @s anchored eyes positioned ^ ^ ^ run function npcinteract:ray_init\n'
         for npc in self.npcList:
             name = self.get_varname(npc["name"])
-            s+='execute if entity @a[scores={T_'+name+'=1..}] run function npcinteract:npc/'+self.get_varname(npc["name"])+'\n'
+            s+='execute as @a[scores={T_'+name+'=1..}] run function npcinteract:npc/'+name+'\n'
         return s
 
     def gets_load(self):
@@ -224,8 +227,13 @@ class NpcParser:
     def gets_npccheck(self, name):
         n=self.get_varname(name)
         s='scoreboard players set @s npcRayDist 0\n'
-        s+='scoreboard players operation @s SP_'+n+' = @s S_'+n+'\n'
-        s+='scoreboard players set @s T_'+n+' 1'
+
+        if self.cfg["dialog"]["rightClickSpam"] == "false":
+            s+='scoreboard players operation @s[scores={T_'+n+'=0}] SP_'+n+' = @s S_'+n+'\n'
+            s+='scoreboard players set @s[scores={T_'+n+'=0}] T_'+n+' 1'
+        else:
+            s+='scoreboard players operation @s SP_'+n+' = @s S_'+n+'\n'
+            s+='scoreboard players set @s T_'+n+' 1'            
         return s
 
 
@@ -233,22 +241,22 @@ class NpcParser:
         #Input dict of one NPC
         
         #title
-        title={"text":self.cfg["nameDisplay"]["separator"][0]+dict["name"]+self.cfg["nameDisplay"]["separator"][1]+" "}
+        title={"text":self.cfg["nameDisplay"]["separator"][0]+dict["nickname"]+self.cfg["nameDisplay"]["separator"][1]+" "}
         title.update( remove_duplicate(self.cfg["nameDisplay"],self.mcdefault_cfg["nameDisplay"]) )
 
         name=self.get_varname(dict["name"])
 
-        s='scoreboard players add @a[scores={T_'+name+'=1..}] T_'+name+' 1\n\n'
+        s='scoreboard players add @s T_'+name+' 1\n\n'
         for state,txts in dict["texts"].items():
             curDelay=0
             totDelay=2
             for txt in txts:
-                s_temp='tellraw @a[scores={T_'+name+'='+str(totDelay)+',SP_'+name+'='+state+'}] ["",'+json.dumps(title)+','+json.dumps(txt["raw"])+']\n'
+                s_temp='tellraw @s[scores={T_'+name+'='+str(totDelay)+',SP_'+name+'='+state+'}] ["",'+json.dumps(title)+','+json.dumps(txt["raw"])+']\n'
                 s += s_temp
                 curDelay=int(txt["delay"])
                 totDelay+=curDelay
             
-            s+='scoreboard players set @a[scores={T_'+name+'='+str(totDelay-curDelay+1)+'..,SP_'+name+'='+state+'}] T_'+name+' 0\n\n'
+            s+='scoreboard players set @s[scores={T_'+name+'='+str(totDelay-curDelay+1)+'..,SP_'+name+'='+state+'}] T_'+name+' 0\n\n'
         return s
 
 
@@ -272,8 +280,10 @@ def isInt(s):
         return False
 
 if __name__ == "__main__":
-
-    d = NpcParser("template.txt", "npcinteract_gen")
+    if len(sys.argv) == 2:
+        d = NpcParser(inputPath=sys.argv[1])
+    else:
+       d = NpcParser() 
     # d._save_config("config.json")
     d.load_config("config.json")
     d.parse()

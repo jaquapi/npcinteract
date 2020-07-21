@@ -6,6 +6,7 @@ text: I'm Steve.
 text: Nice to meet you !
 
 name: Markus
+nickname: Markus the Great
 %0
 %1
 text: Hola !

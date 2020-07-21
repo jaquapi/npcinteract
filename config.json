@@ -1,6 +1,6 @@
 {
     "nameDisplay": {
-        "bold": "false",
+        "bold": "true",
         "color": "yellow",
         "separator": "[]",
         "italic": "false",
@@ -14,7 +14,7 @@
     },
     "dialog": {
         "delay": "40",
-        "npcSpam": "false"
+        "rightClickSpam": "false"
     },
     "raycast": {
         "hideParticle": "false",
