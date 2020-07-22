@@ -1,46 +1,449 @@
 [
    {
       "id": 0,
-      "name": "Markus",
-      "nickname": "Markus the Great",
+      "name": "Tristan",
+      "nickname": "Tristan",
       "texts": {
          "0": [
             {
                "delay": "40",
                "raw": {
                   "color": "yellow",
-                  "text": "Hola !"
+                  "text": "Vous m'avez fait flipper ! Je croyais que c'\u00e9tait les proprios ..."
                }
             },
             {
                "delay": "40",
                "raw": {
                   "color": "yellow",
-                  "text": "My name is \"Markus\"."
+                  "text": "Je vis sur ce toit depuis 9 ans d\u00e9j\u00e0 ..."
                }
             },
             {
                "delay": "40",
                "raw": {
                   "color": "yellow",
-                  "text": "Nice to meet you !"
+                  "text": "Un soir en allant piquer de la bouffe, je suis tomb\u00e9 sur ce fragment, prenez le si vous le voulez."
+               }
+            }
+         ]
+      },
+      "varname": "Tristan"
+   },
+   {
+      "id": 1,
+      "name": "Neville",
+      "nickname": "Neville",
+      "texts": {
+         "0": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Help !"
                }
             }
          ],
-         "1": [],
+         "1": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "J'enquetais aussi sur cette r\u00e9sidence \u00e0 l'\u00e9poque ..."
+               }
+            },
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Mais quand je suis arriv\u00e9 dans cette salle, mon coequipier m'a trahi en refermant la porte ..."
+               }
+            },
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Tenez, j'avais trouv\u00e9 un fragment de carte, je l'ai cach\u00e9 pr\u00e8s de ma couchette."
+               }
+            }
+         ]
+      },
+      "varname": "Neville"
+   },
+   {
+      "id": 2,
+      "name": "Gardien du Pont de ses morts",
+      "nickname": "Gardien",
+      "texts": {
+         "0": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Vous ne faites pas partie du culte de Mumatala, vous ne passerez pas !!"
+               }
+            },
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Sauf \u00e9ventuellement si vous r\u00e9solvez le probl\u00e8me suivant ..."
+               }
+            },
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Prenez le nombre de maison dans le village,"
+               }
+            },
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "multipliez la racine troisi\u00e8me de ce nombre par l'exponentielle inverse du nombre de villageois,"
+               }
+            },
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "divisez par la quantit\u00e9 d'herbe sur le Plateau ... mais j'y pense, vous n'avez pas acc\u00e8s au Plateau, dommage pour vous !"
+               }
+            }
+         ],
+         "1": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Vous avez l'air louche, mais vous pouvez passer."
+               }
+            }
+         ]
+      },
+      "varname": "guard bridge"
+   },
+   {
+      "id": 3,
+      "name": "Villaminaire le Perfectionniste",
+      "nickname": "Villaminaire",
+      "texts": {
+         "0": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Ce temple est d'une telle perfection qu'il nous inspire chaque jour \u00e0 honorer notre seigneur Mumatala."
+               }
+            }
+         ],
+         "1": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Ce lieu repr\u00e9sente la perfection m\u00eame !"
+               }
+            }
+         ],
+         "10": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Quel objet horrible !! Il me faudra une vie enti\u00e8re pour r\u00e9parer cela ..."
+               }
+            }
+         ],
+         "11": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Tant d'imperfections \u00e0 r\u00e9parer, cela me fatigue rien qu'en y pensant ..."
+               }
+            }
+         ]
+      },
+      "varname": "Villaminaire"
+   },
+   {
+      "id": 4,
+      "name": "Assistant de Villaminaire",
+      "nickname": "Assistant",
+      "texts": {
+         "0": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Les fractures spatiale et temporelle sont inaccessible depuis longtemps."
+               }
+            },
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Mais le m\u00e9canisme a l'air compliqu\u00e9, faudrait que je regarde la doc un de ces jours ..."
+               }
+            }
+         ],
+         "1": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Vous avez repar\u00e9 le portail ! Vous \u00eates trop fort !"
+               }
+            }
+         ],
          "2": [
             {
                "delay": "40",
                "raw": {
                   "color": "yellow",
-                  "text": "Bye !"
+                  "text": "Apprenez moi \u00e0 \u00eatre aussi comp\u00e9tent que vous !"
+               }
+            }
+         ]
+      },
+      "varname": "Assistant de Villaminaire"
+   },
+   {
+      "id": 5,
+      "name": "Jos\u00e9",
+      "nickname": "Jos\u00e9",
+      "texts": {
+         "0": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Vous devriez jouer avec mes p'tits moutons."
                }
             },
             {
                "delay": "40",
                "raw": {
                   "color": "yellow",
-                  "text": "See you later !"
+                  "text": "C'est excellent pour se distraire !"
+               }
+            },
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Laissez-les pas sortir par contre, ils boufferaient tout le bl\u00e9 des plantations ..."
+               }
+            }
+         ],
+         "1": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Je crois qu'il me manque des moutons ..."
+               }
+            }
+         ]
+      },
+      "varname": "Jos\u00e9"
+   },
+   {
+      "id": 6,
+      "name": "L'Elfe",
+      "nickname": "L'Elfe",
+      "texts": {
+         "0": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Cueillir des salades et les manger, quel bonheur !"
+               }
+            }
+         ],
+         "1": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Quelle barbarie ! Quelle indignit\u00e9 !"
+               }
+            }
+         ]
+      },
+      "varname": "L'Elfe"
+   },
+   {
+      "id": 7,
+      "name": "Claude La Flemme",
+      "nickname": "Claude La Flemme",
+      "texts": {
+         "0": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Bienvenue au mus\u00e9e."
+               }
+            },
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "J'expose ici tous les trucs que j'ai pu ramasser par ci par l\u00e0 ..."
+               }
+            }
+         ],
+         "1": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Aie !"
+               }
+            }
+         ],
+         "10": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Arr\u00eatez ! Arr\u00eatez ! C'est bon, vous m'avez eu ! Je vais essayer de finir ce que j'ai commenc\u00e9 !"
+               }
+            }
+         ],
+         "11": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Par quoi vais-je commencer ?"
+               }
+            }
+         ]
+      },
+      "varname": "Claude"
+   },
+   {
+      "id": 8,
+      "name": "Clerc de la R\u00e9sistance",
+      "nickname": "Clerc",
+      "texts": {
+         "0": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Prenez soin des artefacts divins"
+               }
+            }
+         ]
+      },
+      "varname": "Clerk Resistance"
+   },
+   {
+      "id": 9,
+      "name": "Vigile de la R\u00e9sistance",
+      "nickname": "Vigile",
+      "texts": {
+         "0": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "CHUUUUT !!"
+               }
+            }
+         ],
+         "1": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "NE FAITES PAS DE BRUIT !!!"
+               }
+            }
+         ]
+      },
+      "varname": "Guard Resistance"
+   },
+   {
+      "id": 10,
+      "name": "Chef de la R\u00e9sistance",
+      "nickname": "Chef",
+      "texts": {
+         "0": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Bonjour. Je repr\u00e9sente la Ligue de la R\u00e9sistance contre le culte de Mumatala."
+               }
+            },
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Tous les jours, nous combattons la procrastination et l'inactivit\u00e9 enseign\u00e9e par le culte."
+               }
+            },
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "De plus, nous les machines nous faisons exploiter par ces cultistes trop paresseux de faire le travail eux-m\u00eames."
+               }
+            },
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Malheureusement, je n'ai pas de quoi me d\u00e9placer. Pouvez-vous accomplir le rituel Moramumatala \u00e0 notre place ?"
+               }
+            },
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "SVP."
+               }
+            }
+         ]
+      },
+      "varname": "Leader resistance"
+   },
+   {
+      "id": 11,
+      "name": "Hache d'Olonoloil",
+      "nickname": "Hache d'Olonoloil",
+      "texts": {
+         "0": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Vous ne sortirez jamais de cette dimension !"
+               }
+            }
+         ],
+         "1": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Vous voulez un indice ? Eh bien non, d\u00e9brouillez vous."
+               }
+            }
+         ],
+         "2": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Ne faites pas attention \u00e0 la description de mon objet. Je suis bien pire en r\u00e9alit\u00e9 !"
                }
             }
          ],
@@ -49,47 +452,176 @@
                "delay": "40",
                "raw": {
                   "color": "yellow",
-                  "text": "You can talk to Steve too."
+                  "text": "Vous y \u00eates presque !"
                }
             },
             {
                "delay": "40",
                "raw": {
                   "color": "yellow",
-                  "text": "Let's go find him ..."
+                  "text": "Non c'\u00e9tait une blague ahah !"
+               }
+            }
+         ],
+         "30": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Si vous m'abandonnez maintenant, vous ne r\u00e9ussirez jamais cette map !"
+               }
+            }
+         ],
+         "4": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Vous avez un cerveau ? Essayez de l'utiliser pour une fois !"
+               }
+            }
+         ],
+         "5": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Arr\u00eatez de gigoter dans tous les sens, c'est pas comme si vous alliez r\u00e9ussir."
+               }
+            }
+         ],
+         "6": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Vous savez lire ? Je n'en ai pas l'impression."
+               }
+            }
+         ],
+         "7": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Il y a un tra\u00eetre parmi vous."
+               }
+            }
+         ],
+         "8": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Si vous sautez dans le vide, je vous donnerai peut-\u00eatre un indice."
                }
             }
          ]
-      }
+      },
+      "varname": "olonoloil"
    },
    {
-      "id": 1,
-      "name": "Steve",
-      "nickname": "Steve",
+      "id": 12,
+      "name": "Leo",
+      "nickname": "Leo",
       "texts": {
          "0": [
             {
                "delay": "40",
                "raw": {
-                  "color": "blue",
-                  "italic": "true",
-                  "text": "Hello !"
+                  "color": "yellow",
+                  "text": "Vous ! On va vous tra\u00eener devant la justice pour la destruction du b\u00e2timent !"
                }
             },
             {
                "delay": "40",
                "raw": {
-                  "color": "blue",
-                  "italic": "true",
-                  "text": "I'm Steve."
+                  "color": "yellow",
+                  "text": "Attendez juste qu'on fasse les plans du tribunal, qu'on le construise et qu'on forme un juge."
+               }
+            }
+         ]
+      },
+      "varname": "Leo"
+   },
+   {
+      "id": 13,
+      "name": "Eldridge",
+      "nickname": "Eldridge",
+      "texts": {
+         "0": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "C'est vous qui venez d'exploser notre centre communautaire ?"
                }
             },
             {
                "delay": "40",
                "raw": {
-                  "color": "blue",
-                  "italic": "true",
-                  "text": "Nice to meet you !"
+                  "color": "yellow",
+                  "text": "J'esp\u00e8re que vous nous aiderez \u00e0 le reconstruire ..."
+               }
+            }
+         ]
+      },
+      "varname": "Eldridge"
+   },
+   {
+      "id": 14,
+      "name": "Laidlaw",
+      "nickname": "Laidlaw",
+      "texts": {
+         "0": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "C'est quoi ce boucan ? On peut m\u00eame plus faire de grasse-mat ?"
+               }
+            }
+         ]
+      },
+      "varname": "Laidlaw"
+   },
+   {
+      "id": 15,
+      "name": "Inspecteur du Pont",
+      "nickname": "Inspecteur",
+      "texts": {
+         "0": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Je vais vous interroger ... plus tard."
+               }
+            }
+         ]
+      },
+      "varname": "inspector bridge"
+   },
+   {
+      "id": 16,
+      "name": "Coffre-fort",
+      "nickname": "Coffre-fort",
+      "texts": {
+         "0": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Mon r\u00eave est de devenir le coffre-fort le plus riche du monde !"
+               }
+            }
+         ],
+         "1": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "L'argent fait mon bonheur !"
                }
             }
          ],
@@ -97,8 +629,8 @@
             {
                "delay": "40",
                "raw": {
-                  "color": "blue",
-                  "text": "Wow thanks !"
+                  "color": "yellow",
+                  "text": "Pas touche !"
                }
             }
          ],
@@ -106,18 +638,402 @@
             {
                "delay": "40",
                "raw": {
-                  "color": "blue",
-                  "text": "You should find Markus ..."
+                  "color": "yellow",
+                  "text": "C'est \u00e7a, servez vous !"
+               }
+            }
+         ],
+         "12": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Mon pr\u00e9cieux tr\u00e9sor ..."
+               }
+            }
+         ],
+         "2": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Vous pouvez me faire confiance pour vos \u00e9pargnes !"
+               }
+            }
+         ],
+         "20": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Quel g\u00e2chis ..."
+               }
+            }
+         ],
+         "30": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Merci, c'est toujours \u00e7a de pris ! <3"
+               }
+            }
+         ],
+         "31": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Merci pour votre contribution !"
+               }
+            }
+         ],
+         "32": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Merci <3 ! Je me demande d'o\u00f9 vous sortez toutes ces richesses !"
+               }
+            }
+         ],
+         "35": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Avec vos dons, nous pourrons enfin construire les machines du projet Achronos !!! Vous nous sauvez ! :D"
+               }
+            }
+         ]
+      },
+      "varname": "vault"
+   },
+   {
+      "id": 17,
+      "name": "Recycleur d'eau",
+      "nickname": "Recycleur d'eau",
+      "texts": {
+         "0": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Comment osez-vous priver ces pauvres petites plantes d'eau ?"
+               }
+            }
+         ],
+         "1": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Ces arbres ne pousseront pas bien \u00e0 cause de vos m\u00e9faits ..."
+               }
+            }
+         ],
+         "2": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Ces plantes ne vous ont rien fait, r\u00e9activez l'irrigation tout de suite."
+               }
+            }
+         ],
+         "3": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Les habitants n'auront plus d'eau propre \u00e0 cause de votre sabotage."
+               }
+            }
+         ],
+         "4": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Les travailleurs devront chercher de l'eau ailleurs pour leur machine \u00e0 caf\u00e9."
+               }
+            }
+         ],
+         "5": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Vous venez de d\u00e9truire le futur ..."
                }
             },
             {
                "delay": "40",
                "raw": {
-                  "color": "blue",
-                  "text": "Maybe he's got another job for you :)"
+                  "color": "yellow",
+                  "text": "Non je d\u00e9conne, ce levier ne sert \u00e0 rien."
                }
             }
          ]
-      }
+      },
+      "varname": "water recycling"
+   },
+   {
+      "id": 18,
+      "name": "Aspirascenseur",
+      "nickname": "Aspirascenseur",
+      "texts": {
+         "0": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Je suis un Aspirascenseur et j'en suis fier !"
+               }
+            }
+         ],
+         "1": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Vous l'ignoriez peut-\u00eatre, vous \u00eates plus en s\u00e9curit\u00e9 avec moi que dans un ascenseur classique."
+               }
+            }
+         ],
+         "2": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Le saviez-vous ? Il n'y a que deux individus de mon esp\u00e8ce dans ce monde."
+               }
+            }
+         ],
+         "3": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Mon nom est Bobby, et mon fr\u00e8re s'appelle Mike."
+               }
+            }
+         ],
+         "4": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Je travaille dans un building perdu dans une fracture temporelle !"
+               }
+            }
+         ],
+         "5": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "J'adore l'huile de coude, c'est tr\u00e8s d\u00e9licieux !"
+               }
+            }
+         ]
+      },
+      "varname": "elevator"
+   },
+   {
+      "id": 19,
+      "name": "Sainte-Balance",
+      "nickname": "Sainte-Balance",
+      "texts": {
+         "0": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Booouh pas bon !"
+               }
+            }
+         ],
+         "1": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Hmmm ... gauche !"
+               }
+            }
+         ],
+         "10": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "... essais, pas mal"
+               }
+            }
+         ],
+         "2": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Hmmm ... droite !"
+               }
+            }
+         ]
+      },
+      "varname": "holy scale"
+   },
+   {
+      "id": 20,
+      "name": "Ordonnanceur Divin",
+      "nickname": "Ordonnanceur Divin",
+      "texts": {
+         "0": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Ce que vous me donnez ne fait aucun sens."
+               }
+            }
+         ],
+         "1": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Vous faites vraiment tout \u00e0 l'envers, cultistes de Mumamachin. Mais bon, qui suis-je pour juger ?"
+               }
+            }
+         ],
+         "2": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Voil\u00e0 enfin quelqu'un qui a le sens des priorit\u00e9s ! Dans tes dents Mumamachin !"
+               }
+            }
+         ]
+      },
+      "varname": "divine scheduler"
+   },
+   {
+      "id": 21,
+      "name": "Morland",
+      "nickname": "Morland",
+      "texts": {
+         "0": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Salutation confr\u00e8re, je suis le responsable du projet Achronos pour l'allongement du temps."
+               }
+            },
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Malheureusement, notre tr\u00e9sorerie est quasiment vide ce qui fait tra\u00eener le projet ..."
+               }
+            },
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Mais bon, il n'y a pas le feu, pas vrai ?"
+               }
+            }
+         ]
+      },
+      "varname": "Morland"
+   },
+   {
+      "id": 22,
+      "name": "Morland Jr",
+      "nickname": "Morland Jr",
+      "texts": {
+         "0": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Salutation confr\u00e8re. Cela fait longtemps que nous n'avons plus eu de visite."
+               }
+            }
+         ],
+         "1": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "La fin de cette fracture temporelle est proche malheureusement."
+               }
+            }
+         ],
+         "2": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "J'ai cependant vraiment la flemme de vous raconter l'histoire de ce lieu."
+               }
+            }
+         ],
+         "3": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Vous trouverez facilement des bouquins sur le sujet."
+               }
+            }
+         ]
+      },
+      "varname": "Morland Jr"
+   },
+   {
+      "id": 23,
+      "name": "Pablo",
+      "nickname": "Pablo",
+      "texts": {
+         "0": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Saaaalutations, huuuumain !"
+               }
+            },
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "A partiiiir d'aujourd'huiiii, je serais votre guiiiide spirituel."
+               }
+            }
+         ],
+         "10": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Juuuuust do iiiiiiiiit !!!"
+               }
+            }
+         ],
+         "11": [
+            {
+               "delay": "40",
+               "raw": {
+                  "color": "yellow",
+                  "text": "Staaaay determiiiined !!!"
+               }
+            }
+         ]
+      },
+      "varname": "Pablo"
    }
 ]

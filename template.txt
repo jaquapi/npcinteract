@@ -6,6 +6,9 @@ name: Markus
 #Define an optional nickname (name displayed in chat)
 nickname: Markus the Great
 
+#Define an optional varname (name used to create scoreboard variables). Allows 'name' and 'nickname' to be translated without changing scoreboard variable names.
+varname: markus
+
 #You can define various states for your NPC (with '%'+<NUMBER>). For each state, you can write a corresponding dialog (with 'text:<TEXT>')
 %0
 text: Hola !

@@ -105,15 +105,19 @@ class NpcParser:
         if listL[0] == "name":
             print("Got "+listL[1])
             id = len(self.npcList)
-            self.npcList.append({"name":listL[1],"nickname":listL[1],"id":id})
+            self.npcList.append({"name":listL[1],"nickname":listL[1],"varname":listL[1],"id":id})
             self.npcList[id]["texts"] = {}
             self.npcList[id]["texts"]["0"] = []    #initializes at self.currentState=0
             return True
         
         elif listL[0] == "nickname":
             print("\talias "+listL[1])
-            id = len(self.npcList)-1
-            self.npcList[id]["nickname"] = listL[1]
+            self.npcList[len(self.npcList)-1]["nickname"] = listL[1]
+            return True
+
+        elif listL[0] == "varname":
+            print("\tstored as "+listL[1])
+            self.npcList[len(self.npcList)-1]["varname"] = listL[1]
             return True
 
         else:
@@ -189,11 +193,11 @@ class NpcParser:
 
         os.chdir("npc")
         for npc in self.npcList:
-            n = self.get_varname(npc["name"])
+            n = self.get_varname(npc["varname"])
 
             path = n+"_check.mcfunction"
             with open(path,"w",encoding="utf8") as f:
-                f.write(self.gets_npccheck(npc["name"]))
+                f.write(self.gets_npccheck(npc["varname"]))
 
             path = n+".mcfunction"
             with open(path,"w",encoding="utf8") as f:
@@ -205,14 +209,15 @@ class NpcParser:
     def gets_tick(self):
         s='execute as @a[scores={npcTalkedTo=1..}] at @s anchored eyes positioned ^ ^ ^ run function npcinteract:ray_init\n'
         for npc in self.npcList:
-            name = self.get_varname(npc["name"])
+            name = self.get_varname(npc["varname"])
+            s+='execute as @a[scores={T_'+name+'=0}] run scoreboard players operation @s SP_'+name+' = @s S_'+name+'\n'
             s+='execute as @a[scores={T_'+name+'=1..}] run function npcinteract:npc/'+name+'\n'
         return s
 
     def gets_load(self):
         s='scoreboard objectives add npcRayDist dummy\nscoreboard objectives add npcTalkedTo minecraft.custom:minecraft.talked_to_villager\n\n'
         for npc in self.npcList:
-            name = self.get_varname(npc["name"])
+            name = self.get_varname(npc["varname"])
             s+='scoreboard objectives add T_'+name+' dummy\nscoreboard players set @a T_'+name+' 0\n'
             s+='scoreboard objectives add S_'+name+' dummy\nscoreboard players set @a S_'+name+' 0\n'
             s+='scoreboard objectives add SP_'+name+' dummy\nscoreboard players set @a SP_'+name+' 0\n'
@@ -221,7 +226,7 @@ class NpcParser:
     def gets_checks(self):
         s=""
         for npc in self.npcList:
-            s+='execute at @e[name="'+npc["name"]+'"] anchored eyes positioned ^ ^ ^ if entity @e[tag=NPC_RAY,distance=..1] run function npcinteract:npc/'+self.get_varname(npc["name"])+'_check\n'
+            s+='execute at @e[name="'+npc["name"]+'"] anchored eyes positioned ^ ^ ^ if entity @e[tag=NPC_RAY,distance=..1] run function npcinteract:npc/'+self.get_varname(npc["varname"])+'_check\n'
         return s
 
     def gets_npccheck(self, name):
@@ -244,7 +249,7 @@ class NpcParser:
         title={"text":self.cfg["nameDisplay"]["separator"][0]+dict["nickname"]+self.cfg["nameDisplay"]["separator"][1]+" "}
         title.update( remove_duplicate(self.cfg["nameDisplay"],self.mcdefault_cfg["nameDisplay"]) )
 
-        name=self.get_varname(dict["name"])
+        name=self.get_varname(dict["varname"])
 
         s='scoreboard players add @s T_'+name+' 1\n\n'
         for state,txts in dict["texts"].items():
