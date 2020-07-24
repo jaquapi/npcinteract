@@ -5,13 +5,9 @@ This project aims to :
 - setup NPC states, and let the developper decide of the logical part (how/when to switch between states ...).
 
 ## Get started :
-1) Open `template.txt` and write down NPC dialogs. 
+1) Open `template.txt` and write down NPC dialogs. (YML syntax highlighter works well for `template.txt`)
 2) Run `python parser.py template.txt`  (Python 3+ needed)
 3) Put generated datapack folder into your world's datapack folder
-
-## How to change an NPC state ?
-- With minecraft command :
-`scoreboard players set <SELECTOR> S_<NPC> <STATE_NUMBER>`
 
 ## How to trigger a dialog ?
 Two options :
@@ -19,12 +15,18 @@ Two options :
 - (Manual) With minecraft command : 
 `scoreboard players set <SELECTOR> T_<NPC> 1`
 
+## Additionnal tricks
+### Change the NPC state
+- `scoreboard players set <SELECTOR> S_<NPC> <STATE_NUMBER>`
+
+### Check end of dialog
+Check for NPC state -1. For example :
+- `execute if entity @a[scores={T_<NPC>=-1}] run ...` 
+
 ## Tool configuration and more
 - More options in `config.json` !
-- YML syntax highlighter works well for `template.txt`
 - VSCode extension here : https://github.com/KReload/npc-interact-extension
 
 ## To fix
-- name translation will change variable name : add "npcid:123456" ? OK
 - multiple {} in one dialog line ? do something like 'text : 123456, text: 123456, raw:{azeaeazeaezae}' ?
 - S / SP works only for rightclick ... Needs update more often

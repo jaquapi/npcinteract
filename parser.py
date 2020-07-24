@@ -210,12 +210,14 @@ class NpcParser:
         s='execute as @a[scores={npcTalkedTo=1..}] at @s anchored eyes positioned ^ ^ ^ run function npcinteract:ray_init\n'
         for npc in self.npcList:
             name = self.get_varname(npc["varname"])
-            s+='execute as @a[scores={T_'+name+'=0}] run scoreboard players operation @s SP_'+name+' = @s S_'+name+'\n'
-            s+='execute as @a[scores={T_'+name+'=1..}] run function npcinteract:npc/'+name+'\n'
+            s+='execute as @a[scores={T_'+name+'=0}] run scoreboard players operation @s SP_'+name+' = @s S_'+name+'\n' #synchro SP and S
+            s+='execute as @a unless score @s T_'+name+' matches 0 run function npcinteract:npc/'+name+'\n'
+            # s+='execute as @a[scores={T_'+name+'=1..}] run function npcinteract:npc/'+name+'\n'
         return s
 
     def gets_load(self):
-        s='scoreboard objectives add npcRayDist dummy\nscoreboard objectives add npcTalkedTo minecraft.custom:minecraft.talked_to_villager\n\n'
+        s='say Loaded npcinteract datapack\n\n'
+        s+='scoreboard objectives add npcRayDist dummy\nscoreboard objectives add npcTalkedTo minecraft.custom:minecraft.talked_to_villager\n\n'
         for npc in self.npcList:
             name = self.get_varname(npc["varname"])
             s+='scoreboard objectives add T_'+name+' dummy\nscoreboard players set @a T_'+name+' 0\n'
@@ -261,7 +263,8 @@ class NpcParser:
                 curDelay=int(txt["delay"])
                 totDelay+=curDelay
             
-            s+='scoreboard players set @s[scores={T_'+name+'='+str(totDelay-curDelay+1)+'..,SP_'+name+'='+state+'}] T_'+name+' 0\n\n'
+            s+='scoreboard players set @s[scores={T_'+name+'='+str(totDelay-curDelay+1)+'..,SP_'+name+'='+state+'}] T_'+name+' -1\n\n'
+
         return s
 
 

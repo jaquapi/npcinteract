@@ -13,7 +13,7 @@
         "underlined": "false"
     },
     "dialog": {
-        "delay": "40",
+        "delay": "60",
         "rightClickSpam": "false"
     },
     "raycast": {
