@@ -19,8 +19,12 @@ Two options :
 ### Change the NPC state
 - `scoreboard players set <SELECTOR> S_<NPC> <STATE_NUMBER>`
 
+### Check start of dialog
+Check for NPC timer value 2. For example :
+- `execute if entity @a[scores={T_<NPC>=2}] run ...` 
+
 ### Check end of dialog
-Check for NPC state -1. For example :
+Check for NPC timer value -1. For example :
 - `execute if entity @a[scores={T_<NPC>=-1}] run ...` 
 
 ## Tool configuration and more

@@ -256,7 +256,7 @@ class NpcParser:
         s='scoreboard players add @s T_'+name+' 1\n\n'
         for state,txts in dict["texts"].items():
             curDelay=0
-            totDelay=2
+            totDelay=3
             for txt in txts:
                 s_temp='tellraw @s[scores={T_'+name+'='+str(totDelay)+',SP_'+name+'='+state+'}] ["",'+json.dumps(title)+','+json.dumps(txt["raw"])+']\n'
                 s += s_temp
