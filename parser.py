@@ -210,7 +210,7 @@ class NpcParser:
         s='execute as @a[scores={npcTalkedTo=1..}] at @s anchored eyes positioned ^ ^ ^ run function npcinteract:ray_init\n'
         for npc in self.npcList:
             name = self.get_varname(npc["varname"])
-            s+='execute as @a[scores={T_'+name+'=0}] run scoreboard players operation @s SP_'+name+' = @s S_'+name+'\n' #synchro SP and S
+            # s+='execute as @a[scores={T_'+name+'=0}] run scoreboard players operation @s SP_'+name+' = @s S_'+name+'\n' #synchro SP and S
             s+='execute as @a unless score @s T_'+name+' matches 0 run function npcinteract:npc/'+name+'\n'
             # s+='execute as @a[scores={T_'+name+'=1..}] run function npcinteract:npc/'+name+'\n'
         return s
@@ -253,17 +253,24 @@ class NpcParser:
 
         name=self.get_varname(dict["varname"])
 
+        maxDelay = 0
         s='scoreboard players add @s T_'+name+' 1\n\n'
+        s+='scoreboard players operation @s[scores={T_'+name+'=3}] SP_'+name+' = @s S_'+name+'\n\n' #synchro SP and S at T=3
         for state,txts in dict["texts"].items():
             curDelay=0
-            totDelay=3
+            totDelay=3  #Begin dialog at T=3
             for txt in txts:
                 s_temp='tellraw @s[scores={T_'+name+'='+str(totDelay)+',SP_'+name+'='+state+'}] ["",'+json.dumps(title)+','+json.dumps(txt["raw"])+']\n'
                 s += s_temp
                 curDelay=int(txt["delay"])
                 totDelay+=curDelay
             
-            s+='scoreboard players set @s[scores={T_'+name+'='+str(totDelay-curDelay+1)+'..,SP_'+name+'='+state+'}] T_'+name+' -1\n\n'
+            totDelay -= (curDelay-1)
+            if maxDelay < totDelay :
+                maxDelay = totDelay
+            s+='scoreboard players set @s[scores={T_'+name+'='+str(totDelay)+'..,SP_'+name+'='+state+'}] T_'+name+' -1\n\n' #Go to T=-1 upon finish
+
+        s+='scoreboard players set @s[scores={T_'+name+'='+str(maxDelay)+'..}] T_'+name+' -1\n\n' #timeout 
 
         return s
 

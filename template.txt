@@ -34,11 +34,11 @@ text: Hello !
 text: I'm Steve.
 text: Nice to meet you !
 
-%10
+%1
 italic:false
 text: Wow thanks !
 
-%11
+%2
 text: You should find Markus ...
 text: Maybe he's got another job for you :)
 

@@ -33,4 +33,5 @@ Check for NPC timer value -1. For example :
 
 ## To fix
 - multiple {} in one dialog line ? do something like 'text : 123456, text: 123456, raw:{azeaeazeaezae}' ?
-- S / SP works only for rightclick ... Needs update more often
+- S / SP works only for rightclick ... Needs update more often ? OK
+- T pour des états inconnus ? OK
