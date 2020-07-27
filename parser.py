@@ -211,7 +211,7 @@ class NpcParser:
         for npc in self.npcList:
             name = self.get_varname(npc["varname"])
             # s+='execute as @a[scores={T_'+name+'=0}] run scoreboard players operation @s SP_'+name+' = @s S_'+name+'\n' #synchro SP and S
-            s+='execute as @a unless score @s T_'+name+' matches 0 run function npcinteract:npc/'+name+'\n'
+            s+='execute as @a if score @s T_'+name+' matches -1.. unless score @s T_'+name+' matches 0 run function npcinteract:npc/'+name+'\n'
             # s+='execute as @a[scores={T_'+name+'=1..}] run function npcinteract:npc/'+name+'\n'
         return s
 

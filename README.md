@@ -9,15 +9,20 @@ This project aims to :
 2) Run `python parser.py template.txt`  (Python 3+ needed)
 3) Put generated datapack folder into your world's datapack folder
 
-## How to trigger a dialog ?
+## How to use the datapack ?
+### Trigger dialog
 Two options :
 - (Automatic) Right-click the NPC (villagers only)
-- (Manual) With minecraft command : 
-`scoreboard players set <SELECTOR> T_<NPC> 1`
+- (Manual) Set NPC timer value to 1 : 
+    - `scoreboard players set <SELECTOR> T_<NPC> 1`
 
-## Additionnal tricks
-### Change the NPC state
-- `scoreboard players set <SELECTOR> S_<NPC> <STATE_NUMBER>`
+### Change NPC state
+Change NPC state value :
+- `scoreboard players set <SELECTOR> S_<NPC> <STATE_VALUE>`
+
+### Change NPC state and trigger dialog
+For example :
+- `execute as <SELECTOR> store success score @s T_<NPC> run scoreboard players set @s S_<NPC> <STATE_VALUE>`
 
 ### Check start of dialog
 Check for NPC timer value 2. For example :
@@ -32,6 +37,4 @@ Check for NPC timer value -1. For example :
 - VSCode extension here : https://github.com/KReload/npc-interact-extension
 
 ## To fix
-- multiple {} in one dialog line ? do something like 'text : 123456, text: 123456, raw:{azeaeazeaezae}' ?
-- S / SP works only for rightclick ... Needs update more often ? OK
-- T pour des états inconnus ? OK
+- does not support anything other than {"text":"123"}
