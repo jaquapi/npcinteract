@@ -188,6 +188,9 @@ class NpcParser:
         with open("load.mcfunction","w",encoding="utf8") as f:
             f.write(self.gets_load())
 
+        with open("reset.mcfunction","w",encoding="utf8") as f:
+            f.write(self.gets_reset())
+
         with open("npc_check.mcfunction","w",encoding="utf8") as f:
             f.write(self.gets_checks())
 
@@ -216,13 +219,25 @@ class NpcParser:
         return s
 
     def gets_load(self):
-        s='say Loaded npcinteract datapack\n\n'
-        s+='scoreboard objectives add npcRayDist dummy\nscoreboard objectives add npcTalkedTo minecraft.custom:minecraft.talked_to_villager\n\n'
+  
+        s='scoreboard objectives add npcRayDist dummy\nscoreboard objectives add npcTalkedTo minecraft.custom:minecraft.talked_to_villager\n\n'
+        s+='scoreboard objectives add npcinteract_once dummy\n'
+        s+='execute unless score fakeplayer npcinteract_once matches 42 run function npcinteract:reset\n'
+        s+='tell @a[gamemode=creative] (npcinteract) LOADED\n'
+        return s
+
+    def gets_reset(self):
+
+        s="scoreboard players set fakeplayer npcinteract_once 42\n\n"
+
         for npc in self.npcList:
             name = self.get_varname(npc["varname"])
             s+='scoreboard objectives add T_'+name+' dummy\nscoreboard players set @a T_'+name+' 0\n'
             s+='scoreboard objectives add S_'+name+' dummy\nscoreboard players set @a S_'+name+' 0\n'
             s+='scoreboard objectives add SP_'+name+' dummy\nscoreboard players set @a SP_'+name+' 0\n'
+
+        s+='tell @a[gamemode=creative] (npcinteract) RESET\n'
+
         return s
 
     def gets_checks(self):
